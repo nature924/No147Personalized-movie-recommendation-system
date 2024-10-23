@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.AboutusDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.AboutusEntity" id="aboutusMap">
+        <result property="title" column="title"/>
+        <result property="subtitle" column="subtitle"/>
+        <result property="content" column="content"/>
+        <result property="picture1" column="picture1"/>
+        <result property="picture2" column="picture2"/>
+        <result property="picture3" column="picture3"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.AboutusVO" >
+		SELECT * FROM aboutus  aboutus         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.AboutusVO" >
+		SELECT  aboutus.* FROM aboutus  aboutus 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.AboutusView" >
+
+		SELECT  aboutus.* FROM aboutus  aboutus 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.AboutusView" >
+		SELECT * FROM aboutus  aboutus <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+</mapper>
